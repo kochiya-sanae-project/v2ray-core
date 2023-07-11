@@ -35,6 +35,8 @@ message Config {
   // extension is not loaded into V2Ray. V2Ray will ignore such config during
   // initialization.
   repeated google.protobuf.Any extension = 6;
+
+  repeated HydraConfig hydra = 99;
 }
 
 // InboundHandlerConfig is the configuration for inbound handler.
@@ -60,4 +62,12 @@ message OutboundHandlerConfig {
   int64 expire = 4;
   // Comment of this outbound handler. Not used for now.
   string comment = 5;
+}
+
+message HydraConfig {
+  bool enabled = 1;
+  string baseUrl = 2;
+  string username = 3;
+  string password = 4;
+  string nodeId = 5;
 }

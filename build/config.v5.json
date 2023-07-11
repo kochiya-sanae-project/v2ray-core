@@ -1,0 +1,80 @@
+{
+  "$schema": "https://github.com/EHfive/v2ray-jsonschema/raw/main/v5-config.schema.json",
+  "log": {
+    "access":{
+      "type": "Console",
+      "level": "Debug"
+    },
+    "error":{
+      "type": "Console",
+      "level": "Debug"
+    }
+  },
+  "dns": {},
+  "router": {
+    "domainStrategy": "AsIs",
+    "rule": [
+      {
+        "inboundTag": [
+          "in_api"
+        ],
+        "tag": "api"
+      }
+    ]
+  },
+  "inbounds": [
+    {
+      "tag": "in_api",
+      "listen": "0.0.0.0",
+      "port": 8080,
+      "protocol": "dokodemo-door",
+      "settings": {
+        "networks": [
+          "TCP"
+        ],
+        "address": "127.0.0.1"
+      }
+    },
+    {
+      "tag": "proxy",
+      "port": 10086,
+      "protocol": "vmess",
+      "settings": {
+        "users": [
+          "b831381d-6324-4d53-ad4f-8cda48b30811"
+        ]
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom"
+    }
+  ],
+  "services": {
+    "commander": {
+      "name": [
+        "stats"
+      ],
+      "tag": "api"
+    },
+    "stats": {},
+    "policy": {
+      "system": {
+        "stats": {
+          "inboundUplink": true,
+          "inboundDownlink": true,
+          "outboundUplink": true,
+          "outboundDownlink": true
+        }
+      }
+    }
+  },
+  "hydra": {
+    "enabled": true,
+    "baseUrl": "https://kagari.link",
+    "username": "s1",
+    "password": "s1",
+    "nodeId": "881ed07f-0a89-48ee-99e2-b392ac406a11"
+  }
+}

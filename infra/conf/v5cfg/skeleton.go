@@ -18,6 +18,7 @@ type RootConfig struct {
 	Outbounds    []OutboundConfig           `json:"outbounds"`
 	Services     map[string]json.RawMessage `json:"services"`
 	Extensions   []json.RawMessage          `json:"extension"`
+	Hydra        HydraConfig                `json:"hydra"`
 }
 
 type InboundConfig struct {
@@ -46,4 +47,12 @@ type StreamConfig struct {
 	Security          string                 `json:"security"`
 	SecuritySettings  json.RawMessage        `json:"securitySettings"`
 	SocketSettings    socketcfg.SocketConfig `json:"socketSettings"`
+}
+
+type HydraConfig struct {
+	Enabled  bool   `json:"enabled"`
+	BaseUrl  string `json:"baseUrl"`
+	Username string `json:"username"`
+	Password string `json:"password"`
+	NodeId   string `json:"nodeId"`
 }

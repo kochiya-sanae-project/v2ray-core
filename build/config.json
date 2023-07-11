@@ -62,10 +62,21 @@
       "statsOutboundDownlink": true
     }
   },
-  "transport": {},
   "stats": {},
+  "transport": {},
   "reverse": {},
   "fakedns": [],
   "browserForwarder": {},
-  "observatory": {}
+  "observatory": {},
+
+  "hydra": {
+    "enabled": true,
+    "baseUrl": "https://kagari.link",
+    "username": "s1",
+    "password": "s1",
+    "nodeId": "881ed07f-0a89-48ee-99e2-b392ac406a11"
+  },
+  "log": {
+    "loglevel": "debug"
+  }
 }
