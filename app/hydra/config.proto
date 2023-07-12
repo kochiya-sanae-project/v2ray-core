@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package v2ray.core.app.hydra;
+option go_package = "github.com/v2fly/v2ray-core/v5/app/hydra";
+
+message Config {
+  bool Enabled = 1;
+  string BaseUrl = 2;
+  string Username = 3;
+  string Password = 4;
+  string NodeId = 5;
+}
